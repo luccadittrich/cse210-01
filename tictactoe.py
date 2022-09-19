@@ -26,7 +26,7 @@ def print_table(table):
     print(f"{table[6]}⁷ {table[7]}⁸ {table[8]}⁹")
 
 def ask_player(player):
-    ask = int(input(f"\nPlayer {player}, choose a square: ")) - 1
+    ask = int(input(f"\nPlayer {player}, choose a square between 1 and 9: ")) - 1
 
     if player == "❌":
        table[ask] = "❌"
@@ -38,33 +38,35 @@ def winner():
     for i in range(0, 9):
         if (table[0] == table[4] == table[8] != "⬜" ) or (table[2] == table[4] == table[6] != "⬜"):
             if table[i] == "❌":
-                print("\n❌ is the winner 🥳")
+                print("\n❌ is the winner 🎉")
                 return True
             elif table[i] == "🔵":
-                print("\n🔵 is the winner 🥳")
+                print("\n🔵 is the winner 🎉")
                 return True
 
     if "⬜" not in table:
         print("\nDraw")
         return True
+
     # check if squares are equal in horizontal
     for i in range(0, 7, 3):
         if table[i] == table[i + 1] == table[i + 2] != "⬜":
             if table[i] == "❌":
-                print("\n❌ is the winner 🥳")
+                print("\n❌ is the winner 🎉")
                 return True
             elif table[i] == "🔵":
-                print("\n🔵 is the winner 🥳")
+                print("\n🔵 is the winner 🎉")
                 return True
 
     # check if squares are equal in vertical
-    for i in range(0, 2):
+    for i in range(0, 3):
+        #       2            2 + 3 = 5      2 + 6 =8
         if table[i] == table[i + 3] == table[i + 6] != "⬜":
             if table[i] == "❌":
-                print("\n❌ is the winner 🥳")
+                print("\n❌ is the winner 🎉")
                 return True
             elif table[i] == "🔵":
-                print("\n🔵 is the winner 🥳")
+                print("\n🔵 is the winner 🎉")
                 return True
 
     return False

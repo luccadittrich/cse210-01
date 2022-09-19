@@ -60,7 +60,6 @@ def winner():
 
     # check if squares are equal in vertical
     for i in range(0, 3):
-        #       2            2 + 3 = 5      2 + 6 =8
         if table[i] == table[i + 3] == table[i + 6] != "⬜":
             if table[i] == "❌":
                 print("\n❌ is the winner 🎉")
